@@ -9,10 +9,21 @@ public class Util {
     private static final String DB_USERNAME = "rooting";
     private static final String DB_PASSWORD = "root";
 
+    private Util() {
+    }
+
     public static Connection getConnection() throws SQLException {
         Connection connection = null;
         connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
-        //connection.setAutoCommit(false);
+        connection.setAutoCommit(false);
         return connection;
+    }
+
+    public static void closeConnection() {
+        try {
+            getConnection().close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
