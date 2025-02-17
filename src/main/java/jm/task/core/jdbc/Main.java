@@ -24,10 +24,8 @@ public class Main {
         Util.closeConnection();
         service.saveUser(user3.getName(), user3.getLastName(), user3.getAge());
         Util.closeConnection();
-
         service.getAllUsers();
         Util.closeConnection();
-
         service.cleanUsersTable();
         Util.closeConnection();
         service.dropUsersTable();
