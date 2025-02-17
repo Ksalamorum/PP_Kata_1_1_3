@@ -30,6 +30,5 @@ public class Main {
         Util.closeConnection();
         service.dropUsersTable();
         Util.closeConnection();
-
     }
 }
