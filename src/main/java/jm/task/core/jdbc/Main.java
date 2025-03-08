@@ -2,6 +2,7 @@ package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserServiceImpl;
+import jm.task.core.jdbc.util.HibernateUtil;
 import jm.task.core.jdbc.util.Util;
 
 import java.sql.Connection;
@@ -15,20 +16,16 @@ public class Main {
 
         UserServiceImpl service = new UserServiceImpl();
         service.createUsersTable();
-        Util.closeConnection();
+
         service.saveUser(user.getName(), user.getLastName(), user.getAge());
-        Util.closeConnection();
         service.saveUser(user1.getName(), user1.getLastName(), user1.getAge());
-        Util.closeConnection();
         service.saveUser(user2.getName(), user2.getLastName(), user2.getAge());
-        Util.closeConnection();
         service.saveUser(user3.getName(), user3.getLastName(), user3.getAge());
-        Util.closeConnection();
+        service.removeUserById(1);
         service.getAllUsers();
-        Util.closeConnection();
         service.cleanUsersTable();
-        Util.closeConnection();
         service.dropUsersTable();
-        Util.closeConnection();
+
+
     }
 }
